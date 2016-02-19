@@ -1,4 +1,4 @@
-package org.tendiwa.plane.settlements
+package org.tendiwa.plane.settlements.roadNetworkShape
 
 import org.tendiwa.plane.geometry.graphs.Graph2D
 import org.tendiwa.plane.geometry.polygons.Polygon

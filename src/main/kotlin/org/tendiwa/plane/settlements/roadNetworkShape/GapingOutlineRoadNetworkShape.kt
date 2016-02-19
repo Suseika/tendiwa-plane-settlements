@@ -1,4 +1,4 @@
-package org.tendiwa.plane.settlements
+package org.tendiwa.plane.settlements.roadNetworkShape
 
 import org.tendiwa.plane.geometry.crackedHoleygon.CrackedHoleygon
 import org.tendiwa.plane.geometry.crackedHoleygon.cracks

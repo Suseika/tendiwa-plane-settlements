@@ -7,7 +7,8 @@ import org.tendiwa.plane.geometry.graphs.Graph2D
 import org.tendiwa.plane.geometry.graphs.constructors.Graph2D
 import org.tendiwa.plane.geometry.holeygons.polygons
 import org.tendiwa.plane.geometry.polygons.Polygon
-import org.tendiwa.plane.geometry.polygons.masked.MaskedPolygon
+import org.tendiwa.plane.geometry.polygons.masked.PerimeterPiece
+import org.tendiwa.plane.geometry.polygons.masked.mask
 import org.tendiwa.plane.geometry.segments.Segment
 
 /**
@@ -16,7 +17,7 @@ import org.tendiwa.plane.geometry.segments.Segment
  */
 class GapingOutlineRoadNetworkShape(
     base: CrackedHoleygon,
-    placeGaps: (Polygon) -> MaskedPolygon,
+    placeGaps: (Polygon) -> List<PerimeterPiece>,
     override val roadWidth: RoadWidth
 ) : RoadNetworkShape {
     override val roads: Graph2D
@@ -27,7 +28,7 @@ class GapingOutlineRoadNetworkShape(
 
     init {
         val maskedPolygons = base.border.polygons
-            .map(placeGaps)
+            .map { it.mask(placeGaps(it)) }
         val actualBorderRoadSegments =
             maskedPolygons
                 .flatMap { it.unmasked.flatMap { it.segments } }

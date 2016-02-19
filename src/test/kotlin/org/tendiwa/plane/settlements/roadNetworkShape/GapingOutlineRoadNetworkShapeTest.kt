@@ -5,7 +5,6 @@ import org.tendiwa.math.sliders.CircularSlider
 import org.tendiwa.plane.geometry.crackedHoleygon.random.RandomCrackedHoleygon
 import org.tendiwa.plane.geometry.holeygons.Holeygon
 import org.tendiwa.plane.geometry.polygons.masked.PerimeterPiece
-import org.tendiwa.plane.geometry.polygons.masked.mask
 import org.tendiwa.plane.geometry.rectangles.SquareAt0
 
 class GapingOutlineRoadNetworkShapeTest {
@@ -17,12 +16,10 @@ class GapingOutlineRoadNetworkShapeTest {
             ),
             {
                 polygon ->
-                polygon.mask(
-                    listOf(
-                        PerimeterPiece(
-                            CircularSlider(0.4),
-                            8.0
-                        )
+                listOf(
+                    PerimeterPiece(
+                        CircularSlider(0.4),
+                        8.0
                     )
                 )
             },

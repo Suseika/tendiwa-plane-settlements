@@ -14,8 +14,7 @@ class GapingOutlineRoadNetworkShapeTest {
             RandomCrackedHoleygon(
                 Holeygon(SquareAt0(10.0))
             ),
-            {
-                polygon ->
+            { _ ->
                 listOf(
                     PerimeterPiece(
                         CircularSlider(0.4),
